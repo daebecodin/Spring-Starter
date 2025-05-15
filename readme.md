@@ -19,3 +19,4 @@
 - Lazy Beans
 - Spring Beans and Bean Scope
 - Spring Bean Management and Life Cycle
+- Annotation-Based Configuration
