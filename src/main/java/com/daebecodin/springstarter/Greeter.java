@@ -20,6 +20,7 @@ public class Greeter {
     @Autowired  // we add this annotation to automatically instantiate this constructor
                 // since there are two constructors, we need to specify which one to use on startup
     public Greeter(HelloWorldMessage hwm) {
+        System.out.println("Greeter constructor called");
         this.hwm = hwm;
     }
 

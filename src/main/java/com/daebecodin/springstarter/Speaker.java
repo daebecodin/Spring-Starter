@@ -3,7 +3,7 @@ package com.daebecodin.springstarter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+
     // setter injection
 public class Speaker {
     HelloWorldMessage hwm;
@@ -19,7 +19,6 @@ public class Speaker {
     }
 
     // when this class is called, this is the default
-    @Autowired
     public void setHwm(HelloWorldMessage hwm) {
         this.hwm = hwm;
     }

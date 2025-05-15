@@ -1,10 +1,7 @@
 package com.daebecodin.springstarter;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration // this annotation is required to make this class a configuration bean
 @ComponentScan("com.daebecodin.springstarter")  // this annotation helps spring scan all beas in the package required,
@@ -18,7 +15,8 @@ public class SpringStarterApplication {
         Greeter greeter = ctx.getBean(Greeter.class); // gets bean from the bean registry
         greeter.greet(); // takes the created bean --> sees that it requires a HelloWorldMessage bean, injects it, and calls the greet methods
     }
-    @Bean  // another way to instantiate a bean and pull it from the bean registry
+    @Bean  // another way to instantiate a bean using Java config and pull it from the bean registry
+    @Lazy
     public HelloWorldMessage getHelloWorldMessage(String randomMessage) {
         return new HelloWorldMessage(randomMessage);
         // I removed the @component annotation from the HelloWorldMessage class,
@@ -27,6 +25,7 @@ public class SpringStarterApplication {
     }
 
     @Bean
+     // the Greeter bean will not be instantiated until called
     public Greeter getGreeter(HelloWorldMessage message) {
         return new Greeter(message);
         // since we want this bean to print the HelloWorldMessage,
