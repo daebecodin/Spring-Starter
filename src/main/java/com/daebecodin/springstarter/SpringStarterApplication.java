@@ -19,8 +19,8 @@ public class SpringStarterApplication {
         greeter.greet(); // takes the created bean --> sees that it requires a HelloWorldMessage bean, injects it, and calls the greet methods
     }
     @Bean  // another way to instantiate a bean and pull it from the bean registry
-    public HelloWorldMessage getHelloWorldMessage() {
-        return new HelloWorldMessage();
+    public HelloWorldMessage getHelloWorldMessage(String randomMessage) {
+        return new HelloWorldMessage(randomMessage);
         // I removed the @component annotation from the HelloWorldMessage class,
         // so this method is required to make the HelloWorldMessage a bean
         // and ready for Java config
@@ -33,7 +33,11 @@ public class SpringStarterApplication {
         // we need to pass the HelloWorldBean to the method.
         // Spring likely already has the hwm bean ready for injection, so we dont
         // need to create a new one.
+    }
 
+    @Bean
+    public String randomMessage() {
+        return "Yo";
     }
 
 }

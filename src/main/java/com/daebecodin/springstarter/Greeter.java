@@ -3,7 +3,7 @@ package com.daebecodin.springstarter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-// @Component // declaring this class a bean
+//@Component // declaring this class a bean
 public class Greeter {
     HelloWorldMessage hwm;
 
